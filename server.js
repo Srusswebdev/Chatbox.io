@@ -1,5 +1,6 @@
 var app = require('express')();
 var http = require('http').Server(app);
+var port_number = process.env.PORT || 3000;
 var io = require("socket.io")(http);
 var people = {};
 
@@ -28,6 +29,6 @@ io.on('connection', function(socket){
 });
 
 //We make the http server listen on port 3000
-http.listen(3000, '0.0.0.0', function() {
-    console.log('listening on *:3000');
+http.listen(port_number, function() {
+    console.log('listening on localhost:' + port_number);
 });
